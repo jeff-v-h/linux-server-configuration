@@ -271,6 +271,3 @@ https://stackoverflow.com/questions/49836676/python-pip3-cannot-import-name-main
 https://stackoverflow.com/questions/1769361/postgresql-group-by-different-from-mysql
 https://stackoverflow.com/questions/22275412/sqlalchemy-return-all-distinct-column-values
 - PostgreSQl for Beginners: http://www.postgresqlforbeginners.com/2010/11/sql-distinct-distinct-on-and-all.html
-
-
-## SSH Key location for grader
