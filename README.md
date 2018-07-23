@@ -7,8 +7,12 @@ The following Linux server configuration is completed on a windows machine with 
 Public Static IP address: 35.176.129.195
 SSH port: 2200
 
+
+
 ## URL to hosted web application
 http://ec2-35-176-129-195.eu-west-2.compute.amazonaws.com
+
+
 
 ## Software installed and configuration changes made
 ### Software used
@@ -21,6 +25,7 @@ http://ec2-35-176-129-195.eu-west-2.compute.amazonaws.com
 - mod_wsgi
 - Python2
 - PostgreSQL
+
 
 ### Secure your server
 #### Updating the instance
@@ -52,6 +57,7 @@ In Amazon Lightsail, In the 'jeffh-ubuntu-instance' instance, under the 'Network
 1. Ensure an instance is created
 2. Create a static IP and attach it to an instance in Amazon Lightsail by following the instructions at https://lightsail.aws.amazon.com/ls/docs/en/articles/lightsail-create-static-ip
 3. Download, install and setup PuTTY following the instructions at https://lightsail.aws.amazon.com/ls/docs/en/articles/lightsail-how-to-set-up-putty-to-connect-using-ssh
+
 
 ### Create `grader`
 #### Create grader user and give access to sudo
@@ -85,6 +91,7 @@ Back on local bash terminal:
 - Additionally to force public key login instead of password: `sudo nano /etc/ssh/ssh_config`
 - Scroll down and change the yes next to passwordAuthentication to 'no', then save.
 - `sudo service ssh restart`
+
 
 ### Prepare to deploy project
 #### Configure local timezone to UTC
@@ -131,6 +138,7 @@ postgres=# GRANT ALL ON SCHEMA public TO catalog;
 - Make sure the .git directory is not publicly accessible via a browser
 At the root of the web directory, add a .htaccess file and include this line:
 `RedirectMatch 404 /\.git`
+
 
 ### Deploy Project
 #### Clone project from Github repository
@@ -217,7 +225,7 @@ application.secret_key = 'catalog_secret_key'
 - `cd /var/www/catalog/catalog` to go into the project directory
 - `mv app.py __init__.py` to change the file name
 - `nano __init__.py` to edit the __init__.py file. In the file:
-	1. On line 20, change the path from 'client_secrets.json' to the full path '/var/www/catalog/catalog/client_secrets.json'
+	1. On lines 20 and 50, change the path from 'client_secrets.json' to the full path '/var/www/catalog/catalog/client_secrets.json'
 	2. On line 22, replace
 	"engine = create_engine(‘sqlite:///itemCatalog.db’)"
 	with
@@ -238,10 +246,10 @@ Load the app at http://35.176.129.195/ and/or http://ec2-35-176-129-195.eu-west-
 `cat /var/log/apache2/error.log`
 
 #### Useful Commands
+`sudo service apache2 restart` to restart apache whenever a file is changed.
 `cd /var/www/catalog/catalog` to go to file with virtual environment and project files
 `. venviro/bin/activate` to activate the 'venviro' virtual environment. Must be currently located in the directory where 'venviro' is located
 `python __init__.py` to run the main app file (it has been changed from app.py to __init__.py)
-`sudo service apache2 restart` to restart apache whenever a file is changed.
 
 
 ## Third-Party resources used
