@@ -4,13 +4,13 @@ The following Linux server configuration is completed on a windows machine with 
 
 ## IP address and SSH port of server
 
-Public Static IP address: 35.176.129.195
-SSH port: 2200
-
+- Public Static IP address: 35.176.129.195
+- SSH port: 2200
 
 
 ## URL to hosted web application
-http://ec2-35-176-129-195.eu-west-2.compute.amazonaws.com
+http://ec2-35-176-129-195.eu-west-2.compute.amazonaws.com or
+http://35.176.129.195/
 
 
 
