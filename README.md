@@ -87,7 +87,7 @@ chmod 644 .ssh/authorized_keys
 
 Back on local bash terminal:
 - Login with grader: `ssh grader@[static/public ip of amazon instance] -p 2200 -i ~/.ssh/[file destination of public key]`
-	eg. `ssh@grader@35.176.129.195 -p 2200 -i ~/.ssh/linuxServerProject`
+	eg. `ssh grader@35.176.129.195 -p 2200 -i ~/.ssh/linuxServerProject`
 - Additionally to force public key login instead of password: `sudo nano /etc/ssh/ssh_config`
 - Scroll down and change the yes next to passwordAuthentication to 'no', then save.
 - `sudo service ssh restart`
