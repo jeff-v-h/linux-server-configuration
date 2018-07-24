@@ -31,7 +31,7 @@ http://35.176.129.195/
 #### Updating the instance
 ```
 sudo apt-get update
-sudo apt-get upgrade
+sudo apt-get upgrade # 'sudo apt-get full-upgrade' may need to be used instead if there are packages that have been kept back (upgraes that require changing dependencies)
 sudo apt-get autoremove
 ```
 
