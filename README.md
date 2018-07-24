@@ -40,12 +40,11 @@ sudo apt-get autoremove
 sudo ufw status
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
-sudo ufw allow ssh
-sudo allow 222/tcp
-sudo ufw allow www
+sudo ufw allow 2200/tcp
+sudo ufw allow 80/tcp
 sudo ufw allow 123/udp
 sudo ufw enable
-sudo ufw status
+sudo ufw status # To check they have been enabled properly
 ```
 
 In Amazon Lightsail, In the 'jeffh-ubuntu-instance' instance, under the 'Networking' tab, and under the 'Firewall' heading:
