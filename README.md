@@ -88,15 +88,14 @@ chmod 644 .ssh/authorized_keys
 Back on local bash terminal:
 - Login with grader: `ssh grader@[static/public ip of amazon instance] -p 2200 -i ~/.ssh/[file destination of public key]`
 	eg. `ssh grader@35.176.129.195 -p 2200 -i ~/.ssh/linuxServerProject.rsa`
-- Additionally to force public key login instead of password: `sudo nano /etc/ssh/ssh_config`
+- Additionally to force public key login instead of password: `sudo nano /etc/ssh/sshd_config`
 - Scroll down and change the yes next to passwordAuthentication to 'no', then save.
 - `sudo service ssh restart`
 
-#### Update packages
-```
-sudo apt-get update
-sudo apt-get upgrade # may need to use 'sudo apt-get -f install' first before trying this again if indicated
-```
+#### Disable Root login
+- `sudo nano /etc/ssh/sshd_config`
+- Then find PermitRootLogin and change it to "PermitRootLogin no"
+- `sudo service ssh restart`
 
 
 ### Prepare to deploy project
