@@ -70,7 +70,7 @@ sudo -l -U grader  # grader has access to sudo if (ALL: ALL) ALL is seen
 #### Create SSH key pair for grader using ssh-keygen
 On local machine bash terminal:
 - `ssh-keygen`
-- When asked which file to save the key, copy the listed destination in the brackets but replace the last file (after /.ssh) with your own chosen name (/linuxServerProject was used for this project)
+- When asked which file to save the key, copy the listed destination in the brackets but replace the last file (after /.ssh) with your own chosen name (/linuxServerProject.rsa was used for this project)
 - An empty passphrase was used.
 - `cat [file destination the public key has been saved in] # Ends in .pub`
 - Copy everything in this file (including ssh-rsa, long encryption and user@lcoation) to be used below
@@ -87,10 +87,16 @@ chmod 644 .ssh/authorized_keys
 
 Back on local bash terminal:
 - Login with grader: `ssh grader@[static/public ip of amazon instance] -p 2200 -i ~/.ssh/[file destination of public key]`
-	eg. `ssh grader@35.176.129.195 -p 2200 -i ~/.ssh/linuxServerProject`
+	eg. `ssh grader@35.176.129.195 -p 2200 -i ~/.ssh/linuxServerProject.rsa`
 - Additionally to force public key login instead of password: `sudo nano /etc/ssh/ssh_config`
 - Scroll down and change the yes next to passwordAuthentication to 'no', then save.
 - `sudo service ssh restart`
+
+#### Update packages
+```
+sudo apt-get update
+sudo apt-get upgrade # may need to use 'sudo apt-get -f install' first before trying this again if indicated
+```
 
 
 ### Prepare to deploy project
